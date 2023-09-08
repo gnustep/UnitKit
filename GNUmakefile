@@ -3,9 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 # This file is part of the UnitKit project.
 
-# Check if GNUSTEP_MAKEFILES is set, if not, try to find it
+# Prevent make from executing test targets by default
 .DEFAULT_GOAL := all
 
+# Check if GNUSTEP_MAKEFILES is set, if not, try to find it
 ifeq ($(GNUSTEP_MAKEFILES),)
  GNUSTEP_MAKEFILES := $(shell gnustep-config --variable=GNUSTEP_MAKEFILES 2>/dev/null)
 endif
