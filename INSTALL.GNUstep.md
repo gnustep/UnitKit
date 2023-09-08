@@ -33,13 +33,10 @@ Square brackets "[ ]" are used to indicate optional parameters.
 
 To produce a test bundle and run the test suite:
 
-	make test=yes 
-	
-	ukrun [-q] TestSource/TestUnitKit/TestUnitKit.bundle
-
+	make test
 
 Trouble
 -------
 
 Give us feedback! Tell us what you like; tell us what you think
-could be better. Send bug reports and patches with <https://github.com/etoile/UnitKit>.
+could be better. Send bug reports and patches with <https://github.com/gnustep/UnitKit>.
