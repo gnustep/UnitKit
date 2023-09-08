@@ -13,6 +13,18 @@ endif
 
 include $(GNUSTEP_MAKEFILES)/common.make
 
-SUBPROJECTS = UnitKit Tools
+FRAMEWORK_NAME = UnitKit
+$(FRAMEWORK_NAME)_CURRENT_VERSION_NAME = 1.5
+$(FRAMEWORK_NAME)_DEPLOY_WITH_CURRENT_VERSION = yes
 
+$(FRAMEWORK_NAME)_OBJC_FILES = $(wildcard *.m)
+$(FRAMEWORK_NAME)_HEADER_FILES = $(wildcard *.h)
+
+# Use ARC
+$(FRAMEWORK_NAME)_OBJCFLAGS = -fobjc-arc
+
+# Localization files
+$(FRAMEWORK_NAME)_LOCALIZED_RESOURCE_FILES = UKTestHandler.strings
+
+include $(GNUSTEP_MAKEFILES)/framework.make
 include $(GNUSTEP_MAKEFILES)/aggregate.make

@@ -13,6 +13,15 @@ endif
 
 include $(GNUSTEP_MAKEFILES)/common.make
 
-SUBPROJECTS = UnitKit Tools
+TOOL_NAME = ukrun
 
-include $(GNUSTEP_MAKEFILES)/aggregate.make
+$(TOOL_NAME)_OBJC_FILES = main.m
+
+# Use ARC
+$(TOOL_NAME)_OBJCFLAGS += -fobjc-arc
+$(TOOL_NAME)_OBJCFLAGS += -I../
+
+# Link against UnitKit
+$(TOOL_NAME)_LDFLAGS += -L../UnitKit/UnitKit.framework -lUnitKit
+
+include $(GNUSTEP_MAKEFILES)/tool.make
