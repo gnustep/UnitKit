@@ -37,9 +37,6 @@ The UnitKit core features are:
 - Optional ukrun tool to run test suites packaged in test bundles
 - Xcode test suite templates
 
-To know more about UnitKit: <http://www.etoile-project.org/dev/UnitKit>
-
-
 **Note:** This UnitKit version is a fork of the original UnitKit written by 
 James Duncan Davidson. The original version is not available anymore, and its 
 development has been halted for many years. The initial project web site 
