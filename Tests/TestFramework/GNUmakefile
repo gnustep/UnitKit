@@ -1,9 +1,18 @@
+# Copyright 2023 Hugo Melder
+# 
+# SPDX-License-Identifier: Apache-2.0
+# This file is part of the UnitKit project.
+
+# Check if GNUSTEP_MAKEFILES is set, if not, try to find it
+ifeq ($(GNUSTEP_MAKEFILES),)
+ GNUSTEP_MAKEFILES := $(shell gnustep-config --variable=GNUSTEP_MAKEFILES 2>/dev/null)
+endif
+ifeq ($(GNUSTEP_MAKEFILES),)
+ $(error You need to source the GNUstep.sh script first, or set GNUSTEP_MAKEFILES to the location of the GNUstep Makefiles!)
+endif
+
 include $(GNUSTEP_MAKEFILES)/common.make
 
-# We reset PROJECT_DIR provided by etoile.make to match the subproject since 
-# etoile.make doesn't detect and handle such embedded project (this ensures 
-# the headers and framework get exported in the Build directory and can be 
-# found by TestBundle)
 PROJECT_DIR = $(CURDIR)
 PRINT_PROJECT_NAME = NO
 
@@ -17,6 +26,6 @@ $(FRAMEWORK_NAME)_HEADER_FILES = TestClass.h
 
 $(FRAMEWORK_NAME)_OBJC_FILES = TestClass.m
 
-$(FRAMEWORK_NAME)_OBJCFLAGS = -fobjc-arc
+$(FRAMEWORK_NAME)_OBJCFLAGS += -fobjc-arc
 
 include $(GNUSTEP_MAKEFILES)/framework.make
