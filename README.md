@@ -1,6 +1,8 @@
 UnitKit
 =======
 
+This fork of UnitKit has improved GNUstep support, and aims to further improve the project.
+
 Authors
 : James Duncan Davidson, Nicolas Roard, Quentin Mathe, David Chisnall, Yen-Ju Chen, Christopher Armstrong, Eric Wasylishen
 
