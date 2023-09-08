@@ -3,8 +3,10 @@ UnitKit
 
 Authors
 : James Duncan Davidson, Nicolas Roard, Quentin Mathe, David Chisnall, Yen-Ju Chen, Christopher Armstrong, Eric Wasylishen
+
 License
 : Apache License 2.0 (see LICENSE document)
+
 Version
 : 1.5
 
