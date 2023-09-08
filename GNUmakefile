@@ -4,6 +4,8 @@
 # This file is part of the UnitKit project.
 
 # Check if GNUSTEP_MAKEFILES is set, if not, try to find it
+.DEFAULT_GOAL := all
+
 ifeq ($(GNUSTEP_MAKEFILES),)
  GNUSTEP_MAKEFILES := $(shell gnustep-config --variable=GNUSTEP_MAKEFILES 2>/dev/null)
 endif
@@ -14,5 +16,14 @@ endif
 include $(GNUSTEP_MAKEFILES)/common.make
 
 SUBPROJECTS = UnitKit Tools
+
+test::
+	@echo "Running tests..."
+	@$(MAKE) -C Tests
+	@ukrun -q Tests/TestUnitKit/TestUnitKit.bundle
+
+after-clean::
+	@echo "Cleaning test data..."
+	@$(MAKE) -C Tests clean
 
 include $(GNUSTEP_MAKEFILES)/aggregate.make
